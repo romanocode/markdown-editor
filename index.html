@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor de Markdown</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+   
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <h1>Editor de Markdown</h1>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+                <svg id="sun-icon" class="icon hidden" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                </svg>
+                <svg id="moon-icon" class="icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Panel del Editor -->
+        <div class="panel editor-panel">
+            <div class="panel-header">
+                <h2 class="panel-title">Markdown</h2>
+                <div class="counters">
+                    <div class="counter">
+                        <span id="char-count">0</span> caracteres
+                    </div>
+                    <div class="counter">
+                        <span id="word-count">0</span> palabras
+                    </div>
+                </div>
+            </div>
+            <div class="editor-container">
+                <textarea 
+                    id="markdown-input" 
+                    class="markdown-input" 
+                    placeholder="# Título Principal
+## Subtítulo
+
+**Texto en negrita** y *texto en cursiva*
+
+- Lista item 1
+- Lista item 2
+
+[Enlace de ejemplo](https://example.com)
+
+```javascript
+console.log('Hola mundo');
+```
+
+> Esta es una cita
+
+| Columna 1 | Columna 2 |
+|-----------|-----------|
+| Dato 1    | Dato 2    |"
+                ></textarea>
+            </div>
+        </div>
+
+        <!-- Panel de Vista Previa -->
+        <div class="panel">
+            <div class="panel-header">
+                <h2 class="panel-title">Vista Previa</h2>
+            </div>
+            <div class="preview-container">
+                <div id="preview-output" class="preview-content prose">
+                    <div class="preview-placeholder">
+                        La vista previa aparecerá aquí...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <script src="./js/app.js"></script>
+</body>
+</html>
